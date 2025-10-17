@@ -17,7 +17,8 @@ def get_all_salaries_db():
                 s.total_pay
             FROM salaries s
             JOIN users u ON s.user_id = u.id
-            ORDER BY s.id DESC;
+            WHERE s.user_id != 1
+            ORDER BY s.id ASC;
         """
         cursor.execute(query)
         return cursor.fetchall()
