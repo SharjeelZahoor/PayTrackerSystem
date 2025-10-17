@@ -14,7 +14,7 @@ def get_all_salaries_db():
                 s.month_year,
                 s.total_hours,
                 s.extra_hours,
-                s.total_pay
+                (s.total_hours + s.extra_hours) * u.hourly_rate AS total_pay
             FROM salaries s
             JOIN users u ON s.user_id = u.id
             WHERE s.user_id != 1
